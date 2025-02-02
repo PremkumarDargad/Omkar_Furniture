@@ -1,0 +1,430 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Explore premium quality furniture and home decor at Omkar Furniture and Electronics." />
+    <meta name="keywords" content="Furniture, Home Decor, Omkar Furniture, Electronics, Modern Furniture" />
+    <meta name="author" content="Omkar Furniture and Electronics" />
+    <meta property="og:title" content="Omkar Furniture & Electronics" />
+    <meta property="og:description" content="Explore premium quality furniture and home decor." />
+    <meta property="og:image" content="https://via.placeholder.com/1600x600" />
+    <meta property="og:url" content="https://www.omkarfurniture.com" />
+    <meta name="twitter:title" content="Omkar Furniture & Electronics" />
+    <meta name="twitter:description" content="Explore premium quality furniture and home decor." />
+    <meta name="twitter:image" content="https://via.placeholder.com/1600x600" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Omkar Furniture & Electronics</title>
+
+    <!-- Link to Bootstrap and Google Fonts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://via.placeholder.com/32" type="image/png">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" async></script>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #333;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar .navbar-brand {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #f4f4f9;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .navbar-brand:hover {
+            color: #ff6f61;
+        }
+
+        .navbar-nav .nav-link {
+            color: #f4f4f9;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ff6f61;
+            background-color: #444;
+            border-radius: 5px;
+        }
+
+        .navbar-nav .dropdown-menu {
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: url('https://via.placeholder.com/1600x600') no-repeat center center;
+            background-size: cover;
+            color: white;
+            height: 60vh;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 0.8;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        .hero-section::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            z-index: 1;
+        }
+
+        .hero-section p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            z-index: 1;
+        }
+
+        .btn-shop {
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            z-index: 1;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-shop:hover {
+            background-color: #ff4e40;
+        }
+
+        .container {
+            margin-top: 60px;
+        }
+
+        /* Shop Info Section */
+        .shop-info {
+            background: #fff;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .shop-info h2 {
+            font-size: 2.2rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .shop-info p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #212529 0%, #111 100%);
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .footer a {
+            color: #ff6f61;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Product Cards */
+        .product-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card-body {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .product-card h5 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .product-card p {
+            color: #777;
+            font-size: 1rem;
+        }
+
+        .product-card .price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ff6f61;
+            margin-top: 10px;
+        }
+
+        .product-card .product-code {
+            font-size: 1rem;
+            color: #555;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .navbar .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .navbar-nav .nav-link {
+                font-size: 1rem;
+            }
+
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-section p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Omkar Furniture & Electronics</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto" id="navbar-links">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item dropdown" id="productDropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu" id="category-links">
+                            <!-- Categories will be dynamically rendered here -->
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>Welcome to Omkar Furniture & Electronics</h1>
+        <p>Explore premium quality furniture and home decor</p>
+        <a href="#category-container" class="btn-shop">Shop Now</a>
+    </div>
+
+    <!-- Shop Info Section -->
+    <div class="shop-info" id="about">
+        <h2>About Us</h2>
+        <p>At Omkar Furniture & Electronics, we provide the finest range of furniture and home electronics designed for comfort and elegance.</p>
+    </div>
+
+    <!-- Product Categories Section -->
+    <div class="container" id="category-container">
+        <!-- Categories will be dynamically generated here -->
+    </div>
+
+    <!-- Contact Section -->
+    <div class="container" id="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any inquiries, feel free to reach out to us. We are always happy to assist you.</p>
+    <p><strong>Contact Number:</strong> +91 7620949327 </p> <!-- Your contact number here -->
+</div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Omkar Furniture & Electronics | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <!-- Bootstrap JS and other dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Categories data
+        const categories = [
+            {
+                name: "Beds",
+                id: "beds",
+                products: [
+                    {
+                        name: "Bed",
+                        description: "A sturdy wooden bed perfect for any bedroom.",
+                        price: 7500,
+                        productCode: "B001",
+                        image: "images/Beds/Bed_888.jpeg"
+                    },
+                    {
+                        name: "Bed",
+                        description: "A sturdy wooden bed perfect for any bedroom.",
+                        price: 7500,
+                        productCode: "B002",
+                        image: "images/Beds/Bed_888.jpeg"
+                    },
+                    {
+                        name: "Bed",
+                        description: "A sturdy wooden bed perfect for any bedroom.",
+                        price: 7500,
+                        productCode: "B003",
+                        image: "images/Beds/Bed_888.jpeg"
+                    }
+                ]
+            },
+            {
+                name: "Wardrobes",
+                id: "wardrobes",
+                products: [
+                    {
+                        name: "Wardrobe",
+                        description: "A sleek and modern sliding wardrobe with ample storage space.",
+                        price: 9000,
+                        productCode: "W001",
+                        image: "images/Wardrobes/Wardrobe_888.jpeg"
+                    },
+                    {
+                        name: "Wardrobe",
+                        description: "A sleek and modern sliding wardrobe with ample storage space.",
+                        price: 9000,
+                        productCode: "W002",
+                        image: "images/Wardrobes/Wardrobe_888.jpeg"
+                    },
+                    {
+                        name: "Wardrobe",
+                        description: "A sleek and modern sliding wardrobe with ample storage space.",
+                        price: 9000,
+                        productCode: "W003",
+                        image: "images/Wardrobes/Wardrobe_888.jpeg"
+                    }
+                ]
+            },
+            {
+                name: "Sofas",
+                id: "sofas",
+                products: [
+                    {
+                        name: "Sofa",
+                        description: "A luxurious leather sofa for ultimate comfort.",
+                        price: 15000,
+                        productCode: "S001",
+                        image: "images/Sofas/Sofa_black_white_marble.jpeg"
+                    },
+                    {
+                        name: "Sofa",
+                        description: "A luxurious leather sofa for ultimate comfort.",
+                        price: 15000,
+                        productCode: "S002",
+                        image: "images/Sofas/Sofa_black_white_marble.jpeg"
+                    },
+                    {
+                        name: "Sofa",
+                        description: "A luxurious leather sofa for ultimate comfort.",
+                        price: 15000,
+                        productCode: "S003",
+                        image: "images/Sofas/Sofa_black_white_marble.jpeg"
+                    }
+                ]
+            }
+        ];
+
+        // Dynamically generate categories in Products dropdown
+        const productDropdown = document.getElementById('category-links');
+        categories.forEach(category => {
+            const categoryLink = document.createElement('li');
+            categoryLink.classList.add('dropdown-item');
+            categoryLink.innerHTML = `<a href="#${category.id}" class="nav-link">${category.name}</a>`;
+            productDropdown.appendChild(categoryLink);
+
+            // Add category and products to the page
+            const categorySection = document.createElement('div');
+            categorySection.classList.add('container');
+            categorySection.id = category.id;
+            categorySection.innerHTML = `
+                <h3>${category.name}</h3>
+                <div class="row">
+                    ${category.products.map(product => `
+                        <div class="col-md-4">
+                            <div class="product-card">
+                                <img src="${product.image}" alt="${product.name}">
+                                <div class="product-card-body">
+                                    <h5>${product.name}</h5>
+                                    <p>${product.description}</p>
+                                    <div class="price">₹${product.price}</div>
+                                    <div class="product-code">Product Code: ${product.productCode}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            document.getElementById('category-container').appendChild(categorySection);
+        });
+    </script>
+</body>
+</html>
